@@ -1,0 +1,13 @@
+{% block content %}
+<div>
+    <h3>Registrar-se na Plataforma Faxina Simples<h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit">Registrar</button>
+    </form>
+</div>
+<script>
+
+</script>
+{% endblock %}
