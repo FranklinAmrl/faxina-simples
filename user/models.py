@@ -1,20 +1,21 @@
 from django.db import models
 
-from django.contrib.auth.models import AbstractUser
-
-
 from django.contrib.auth.password_validation import validate_password
 
 from django.core.validators import RegexValidator
 
-from plataform.models import LogDate
-
 from user.consts import GenreChoices
 
 # Create your models here.
+class Base(models.Model):
+    created = models.DateField("Data de criação", auto_now_add=True)
+    uptaded = models.DateField("Data de atualização", auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
-class User(AbstractUser, LogDate):
+class User(Base):
     username = None
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
